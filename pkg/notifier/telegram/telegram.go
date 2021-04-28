@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+// Notify sends a notification by Telegram chat
 func Notify(text string) {
 	url := "https://api.telegram.org/bot" +
 		os.Getenv("TELEGRAM_API_KEY") +
