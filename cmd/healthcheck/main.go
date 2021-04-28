@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/joho/godotenv"
-	"github.com/victorlss/healthcheck/checker"
-	"github.com/victorlss/healthcheck/notifier/telegram"
+	checker2 "github.com/victorlss/healthcheck/pkg/checker"
+	telegram2 "github.com/victorlss/healthcheck/pkg/notifier/telegram"
 	"os"
 	"strings"
 )
@@ -16,8 +16,8 @@ func main() {
 
 	sitesToCheck := strings.Split(os.Getenv("SITES_TO_CHECK"), ",")
 	for _, site := range sitesToCheck {
-		if !checker.IsAlive(site) {
-			telegram.Notify(site + " is down!")
+		if !checker2.IsAlive(site) {
+			telegram2.Notify(site + " is down!")
 		}
 	}
 }
